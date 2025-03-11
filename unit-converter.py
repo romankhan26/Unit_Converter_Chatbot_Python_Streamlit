@@ -1,5 +1,7 @@
 import google.generativeai as genai
 import streamlit as st
+from dotenv import load_dotenv
+import os
 
 
 st.title("CalcMate Unit Converter")
@@ -77,16 +79,12 @@ if input_value > 0:
 
 
 # Set up Gemini API key
-
-
-
-
-
-import streamlit as st
-import google.generativeai as genai
+# Load environment variables from .env file
+load_dotenv()
 
 # Initialize Gemini API
-genai.configure(api_key="AIzaSyAr11cHsLC6LOZY73h0ySHVFAT1L4El8uk")  # Replace with your API key
+genai.configure(api_key=os.getenv('GEMINI_API_KEY'))  # Assuming GEMINI_API_KEY is the variable name in your .env file
+
 
 # Streamlit UI
 st.divider()
